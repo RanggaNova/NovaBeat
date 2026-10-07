@@ -1,0 +1,6 @@
+{
+  "name": "Nova beat",
+  "description": "Game mengetik ritme lirik lagu interaktif dengan sinkronisasi vokal real-time, efek kombo berapi, dan video musik YouTube.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

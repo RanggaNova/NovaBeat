@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #0b0c16;
+    color: #f1f2f6;
+    overflow-x: hidden;
+  }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes error-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(3px); }
+}
+
+@keyframes streak-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.22); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float-note {
+  0% {
+    transform: translateY(0px) scale(0.8) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-90px) scale(1.2) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes combo-float {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-24px) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-48px) scale(1.0);
+  }
+}
+
+@keyframes fire-flicker {
+  0%, 100% { transform: scale(1) rotate(-1deg); filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.7)); }
+  50% { transform: scale(1.1) rotate(2deg); filter: drop-shadow(0 0 16px rgba(239, 68, 68, 0.9)); }
+}
+
+@keyframes streak-continuous-fire {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6)) drop-shadow(0 0 18px rgba(239, 68, 68, 0.4));
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 28px rgba(244, 63, 94, 0.7));
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+@keyframes streak-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.35), inset 0 0 15px rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.7), inset 0 0 25px rgba(244, 63, 94, 0.3);
+    border-color: rgba(251, 191, 36, 0.9);
+  }
+}
+
+@keyframes ambient-drift-slow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.08);
+  }
+  66% {
+    transform: translate(-25px, 20px) scale(0.95);
+  }
+}
+
+@keyframes ambient-drift-reverse {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-40px, 35px) scale(1.1);
+  }
+  66% {
+    transform: translate(30px, -25px) scale(0.92);
+  }
+}
+
+@keyframes bg-equalizer {
+  0%, 100% {
+    height: 15%;
+    opacity: 0.3;
+  }
+  50% {
+    height: 85%;
+    opacity: 0.85;
+  }
+}
+
+@keyframes current-char-glow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(34, 211, 238, 0.8), 0 0 20px rgba(34, 211, 238, 0.5), 0 0 35px rgba(34, 211, 238, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 14px rgba(251, 191, 36, 1), 0 0 28px rgba(245, 158, 11, 0.8), 0 0 45px rgba(244, 63, 94, 0.6);
+  }
+}
+
+@keyframes rainbow-border {
+  0% { border-color: rgba(6, 182, 212, 0.6); box-shadow: 0 0 25px rgba(6, 182, 212, 0.3); }
+  33% { border-color: rgba(245, 158, 11, 0.7); box-shadow: 0 0 25px rgba(245, 158, 11, 0.35); }
+  66% { border-color: rgba(236, 72, 153, 0.7); box-shadow: 0 0 25px rgba(236, 72, 153, 0.35); }
+  100% { border-color: rgba(6, 182, 212, 0.6); box-shadow: 0 0 25px rgba(6, 182, 212, 0.3); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 0.3; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+@keyframes line-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes line-slide-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-24px) scale(0.96);
+  }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 0.9s ease-in-out infinite;
+}
+
+.animate-error-shake {
+  animation: error-shake 0.24s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+.animate-streak-pop {
+  animation: streak-pop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-combo-float {
+  animation: combo-float 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fire-flicker {
+  animation: fire-flicker 0.6s ease-in-out infinite;
+}
+
+.animate-rainbow-border {
+  animation: rainbow-border 4s linear infinite;
+}
+
+.animate-float-note {
+  animation: float-note 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+.animate-line-in {
+  animation: line-slide-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-line-out {
+  animation: line-slide-out 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-streak-fire {
+  animation: streak-continuous-fire 1.2s ease-in-out infinite;
+}
+
+.animate-streak-glow-pulse {
+  animation: streak-glow-pulse 1.8s ease-in-out infinite;
+}
+
+.animate-ambient-slow {
+  animation: ambient-drift-slow 22s ease-in-out infinite;
+}
+
+.animate-ambient-reverse {
+  animation: ambient-drift-reverse 26s ease-in-out infinite;
+}
+
+.animate-current-glow {
+  animation: current-char-glow 1.5s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
